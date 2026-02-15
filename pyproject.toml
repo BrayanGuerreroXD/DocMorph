@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "docmorph"
+version = "0.1.0"
+authors = [
+  { name="Brayan Guerrero", email="your-email@example.com" },
+]
+description = "A modern CLI for document transformation"
+readme = "README.md"
+requires-python = ">=3.8"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+    "typer[all]==0.9.0",
+    "rich==13.7.0",
+    "inquirerpy==0.3.4",
+    "pypandoc==1.13",
+    "markitdown==0.0.1",
+    "playwright>=1.40.0",
+]
+
+[project.scripts]
+morph = "docmorph.main:app"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["docmorph*"]

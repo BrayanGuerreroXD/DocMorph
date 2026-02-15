@@ -33,7 +33,14 @@
 ### Prerequisites
 *   **Python 3.12** or higher installed on your system.
 
-### Environment Setup
+### Global Installation (recommended)
+To use DocMorph as a system-wide command:
+```bash
+pip install .
+```
+Now you can use the `morph` command directly from any folder.
+
+### Environment Setup (for development)
 1.  **Create a Virtual Environment**:
     ```bash
     python3 -m venv venv
@@ -42,9 +49,9 @@
     ```bash
     source venv/bin/activate  # Linux/macOS
     ```
-3.  **Install Dependencies**:
+3.  **Install in Editable Mode**:
     ```bash
-    pip install -r requirements.txt
+    pip install -e .
     ```
 
 ---
@@ -54,19 +61,19 @@
 ### 1. Interactive Mode (Wizard)
 Ideal for searching files on disk and converting them visually.
 ```bash
-python -m docmorph.main
+morph
 ```
 
 ### 2. Command Line Mode (Direct)
 For automation or fast conversion of known files.
 ```bash
-python -m docmorph.main convert path/to/input.pdf output.md
+morph convert path/to/input.pdf output.md
 ```
 
 ### Other Options
 ```bash
-python -m docmorph.main --version  # Show current version
-python -m docmorph.main --help     # Show full help
+morph --version  # Show current version
+morph --help     # Show full help
 ```
 
 ---
