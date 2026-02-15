@@ -1,6 +1,9 @@
 venv/
 __pycache__/
+*.pyc
 *.log
 .env
+dist/
+*.egg-info/
 
 project_plan.md
