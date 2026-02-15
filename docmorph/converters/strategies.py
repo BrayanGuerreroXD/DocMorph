@@ -2,6 +2,7 @@ import pypandoc
 from pathlib import Path
 from abc import ABC, abstractmethod
 from rich.console import Console
+from markitdown import MarkItDown
 
 console = Console()
 
@@ -38,7 +39,6 @@ class MarkItDownStrategy(ConversionStrategy):
     """
     def convert(self, input_file: Path, output_file: Path) -> bool:
         try:
-            from markitdown import MarkItDown
             md = MarkItDown()
             result = md.convert(str(input_file))
             

@@ -7,3 +7,7 @@ dist/
 *.egg-info/
 
 project_plan.md
+execution_report.md
+
+
+*.deb

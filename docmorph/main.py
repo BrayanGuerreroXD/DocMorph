@@ -1,6 +1,14 @@
 import typer
 from rich.console import Console
 from typing import Optional
+from InquirerPy import inquirer
+from InquirerPy.base.control import Choice
+from pathlib import Path
+from docmorph.core.config import SUPPORTED_EXTENSIONS, DEFAULT_SEARCH_PATH
+from docmorph.core.dependencies import check_pandoc
+from docmorph.search.engine import run_search
+
+from docmorph.converters.manager import ConversionManager
 
 __app_name__ = "docmorph"
 __version__ = "0.1.0"
@@ -11,15 +19,6 @@ app = typer.Typer(
     add_completion=False,
 )
 console = Console()
-
-from InquirerPy import inquirer
-from InquirerPy.base.control import Choice
-from pathlib import Path
-from docmorph.core.config import SUPPORTED_EXTENSIONS, DEFAULT_SEARCH_PATH
-from docmorph.core.dependencies import check_pandoc
-from docmorph.search.engine import run_search
-
-from docmorph.converters.manager import ConversionManager
 
 def _version_callback(value: bool):
     if value:
