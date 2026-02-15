@@ -19,6 +19,8 @@ from docmorph.core.config import SUPPORTED_EXTENSIONS, DEFAULT_SEARCH_PATH
 from docmorph.core.dependencies import check_pandoc
 from docmorph.search.engine import run_search
 
+from docmorph.converters.manager import ConversionManager
+
 def _version_callback(value: bool):
     if value:
         console.print(f"[bold green]{__app_name__}[/] version [bold yellow]{__version__}[/]")
@@ -56,8 +58,6 @@ def run_wizard():
         return
 
     # 4. Select Output Format
-    # Logic to determine available formats based on input could go here.
-    # For now, show all supported extensions except the input one.
     input_ext = selected_file.suffix.lower()
     target_formats = [ext for ext in SUPPORTED_EXTENSIONS if ext != input_ext]
     
@@ -66,12 +66,21 @@ def run_wizard():
         choices=target_formats,
     ).execute()
     
-    # 5. Conversion (Phase 6 placeholder)
-    console.print(f"[bold]Converting {selected_file.name} to {target_format}... (Phase 6 Implementation pending)[/]")
+    if not target_format:
+        return
+
+    # 5. Conversion
+    console.print(f"[bold]Converting {selected_file.name} to {target_format}...[/]")
     
-    # Placeholder for actual conversion call
-    # manager = ConversionManager()
-    # manager.convert(selected_file, target_format)
+    manager = ConversionManager()
+    success = manager.convert(selected_file, target_format)
+    
+    if success:
+        console.print("[bold green]Conversion successful![/]")
+        console.print(f"Output saved to same directory.")
+    else:
+        console.print("[bold red]Conversion failed.[/]")
+        raise typer.Exit(code=1)
 
 @app.callback(invoke_without_command=True)
 def main(
