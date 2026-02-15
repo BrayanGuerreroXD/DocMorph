@@ -98,7 +98,7 @@ def main(
     DocMorph: Transform documents between formats effortlessly.
     Run without arguments to start the interactive wizard.
     """
-    if ctx.invoked_subcommand is None:
+    if ctx.invoked_subcommand is None and not version:
         run_wizard()
 
 if __name__ == "__main__":
