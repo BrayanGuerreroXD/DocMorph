@@ -1,6 +1,6 @@
 # 🦋 DocMorph - Document Transformation CLI
 
-**DocMorph** is a modern and powerful Command Line Interface (CLI) tool designed to transform documents between multiple formats (**DOCX, DOC, MD, PDF, HTML, TXT**) quickly, intuitively, and without friction.
+**DocMorph** is a modern and powerful Command Line Interface (CLI) tool designed to transform documents between multiple formats (**DOCX, MD, PDF, HTML, TXT**) quickly, intuitively, and without friction. (Only DOCX is supported for Word; legacy .doc is not.)
 
 ---
 

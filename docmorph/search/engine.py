@@ -14,7 +14,7 @@ def run_search(path: Path, extensions: List[str], ignore_dirs: Optional[Set[str]
         ignore_dirs: Set of directory names to ignore. Defaults to common system dirs.
     """
     if ignore_dirs is None:
-        ignore_dirs = {'.git', 'venv', '__pycache__', 'node_modules', '.idea', '.vscode'}
+        ignore_dirs = {'.git', 'venv', '__pycache__', 'node_modules', '.idea', '.vscode', 'test', 'tests'}
 
     try:
         with os.scandir(path) as scanner:
