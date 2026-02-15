@@ -40,6 +40,19 @@ pip install .
 ```
 Now you can use the `morph` command directly from any folder.
 
+### Install directly from GitHub
+You can install the latest version directly without cloning the repository:
+```bash
+# Install from the dev branch (latest feature)
+pip install git+https://github.com/BrayanGuerreroXD/DocMorph.git@main
+```
+
+### Uninstallation
+If you wish to remove the tool:
+```bash
+pip uninstall docmorph
+```
+
 ### Environment Setup (for development)
 1.  **Create a Virtual Environment**:
     ```bash
